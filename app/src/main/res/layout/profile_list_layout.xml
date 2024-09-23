@@ -98,7 +98,6 @@
             android:layout_height="50dp"
             android:backgroundTint="@color/white"
             android:src="@drawable/baseline_delete_24"
-
             app:layout_constraintBottom_toBottomOf="@+id/MobileTxt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/editBtn"

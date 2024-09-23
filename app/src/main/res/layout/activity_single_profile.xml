@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardMaxElevation="15dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="15dp"
+    tools:context=".SingleProfileActivity">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="15dp">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/nameLabelTxt"
+    android:text="Name:  "
+    android:textColor="@color/black"
+    android:layout_marginTop="10dp"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameTxt"
+            android:textColor="@color/black"
+            android:text="Naeem Noman"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailLabelTxt"
+            android:text="Email:  "
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameLabelTxt"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailTxt"
+            android:text="naeemnoman@gmail.com"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dobLabelTxt"
+            android:text="Date of Birth:  "
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameLabelTxt"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dobTxt"
+            android:text="13/05/2003"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/districLabeltTxt"
+            android:text="District:  "
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dobLabelTxt"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/districtTxt"
+            android:text="Chadpur"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mobileLabelTxt"
+            android:text="Mobile No:  "
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/districtTxt"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mobileTxt"
+            android:text="01406653628"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+            <LinearLayout
+                android:weightSum="1"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:layout_weight=".5"
+                        android:id="@+id/editBtn"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="@color/white"
+                        android:src="@drawable/baseline_edit_24"
+                        />
+
+                    <ImageButton
+                        android:layout_weight=".5"
+                        android:id="@+id/deleteBtn"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="@color/white"
+                        android:src="@drawable/baseline_delete_24"
+
+                        />
+
+
+            </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
