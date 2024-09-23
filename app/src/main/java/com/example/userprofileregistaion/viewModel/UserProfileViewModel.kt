@@ -7,6 +7,7 @@ import com.example.userprofileregistaion.dao.UserProfileDao
 import com.example.userprofileregistaion.database.UserDatabase
 import com.example.userprofileregistaion.model.UserProfile
 import com.example.userprofileregistaion.repository.UserProfileRepository
+import kotlinx.coroutines.Dispatchers
 
 class UserProfileViewModel(application: Application): AndroidViewModel(application) {
 
@@ -25,6 +26,13 @@ class UserProfileViewModel(application: Application): AndroidViewModel(applicati
     suspend fun intsert(userProfile: UserProfile){
         return repository.insert(userProfile)
     }
+
+    fun insertUserProfile(userProfile: UserProfile){
+        viewModelScope.launch(Dispatchers.IO) {{
+            repository.insert(userProfile)
+        }
+    }
+
 
 
 }
