@@ -18,18 +18,20 @@
 
         <TextView
             android:id="@+id/userNameTxt"
-            android:layout_marginRight="10dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:text="Name"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/editBtn"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/userEmailTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -37,13 +39,12 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:id="@+id/userEmailTxt"
             app:layout_constraintEnd_toEndOf="@+id/userNameTxt"
             app:layout_constraintStart_toStartOf="@+id/userNameTxt"
             app:layout_constraintTop_toBottomOf="@+id/userNameTxt" />
 
         <TextView
-            android:id="@+id/DobTxt"
+            android:id="@+id/userDobTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -56,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@+id/userEmailTxt" />
 
         <TextView
-            android:id="@+id/DistrictTxt"
+            android:id="@+id/userdistrictTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -64,12 +65,12 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/DobTxt"
-            app:layout_constraintStart_toStartOf="@+id/DobTxt"
-            app:layout_constraintTop_toBottomOf="@+id/DobTxt" />
+            app:layout_constraintEnd_toEndOf="@+id/userDobTxt"
+            app:layout_constraintStart_toStartOf="@+id/userDobTxt"
+            app:layout_constraintTop_toBottomOf="@+id/userDobTxt" />
 
         <TextView
-            android:id="@+id/MobileTxt"
+            android:id="@+id/userMobileTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -77,9 +78,10 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/DistrictTxt"
-            app:layout_constraintStart_toStartOf="@+id/DistrictTxt"
-            app:layout_constraintTop_toBottomOf="@+id/DistrictTxt" />
+            app:layout_constraintEnd_toEndOf="@id/userdistrictTxt"
+            app:layout_constraintStart_toStartOf="@id/userdistrictTxt"
+            app:layout_constraintTop_toBottomOf="@id/userdistrictTxt"
+            tools:layout_editor_absoluteY="333dp" />
 
         <ImageButton
             android:id="@+id/editBtn"
@@ -87,10 +89,9 @@
             android:layout_height="50dp"
             android:backgroundTint="@color/white"
             android:src="@drawable/baseline_edit_24"
-            app:layout_constraintBottom_toBottomOf="@+id/DobTxt"
+            app:layout_constraintBottom_toBottomOf="@+id/userDobTxt"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.29" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/deleteBtn"
@@ -98,7 +99,7 @@
             android:layout_height="50dp"
             android:backgroundTint="@color/white"
             android:src="@drawable/baseline_delete_24"
-            app:layout_constraintBottom_toBottomOf="@+id/MobileTxt"
+            app:layout_constraintBottom_toBottomOf="@+id/userMobileTxt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/editBtn"
             app:layout_constraintTop_toBottomOf="@+id/editBtn" />
