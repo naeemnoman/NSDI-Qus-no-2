@@ -5,6 +5,10 @@ plugins {
 }
 
 android {
+
+    buildFeatures {
+        viewBinding = true
+    }
     namespace = "com.example.userprofileregistaion"
     compileSdk = 34
 

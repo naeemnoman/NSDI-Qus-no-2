@@ -17,16 +17,28 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
     private var onDeleteClickListener:((UserProfile)->Unit)?=null
     private var onEditClickListener:((UserProfile)->Unit)?=null
 
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ProfileViewHolder {
+        val itemview = LayoutInflater.from(parent.context).inflate(R.layout.profile_list_layout, parent, false)
+        return ProfileViewHolder(itemview)
+    }
+
+    override fun onBindViewHolder(holder: ProfileViewHolder, position: Int) {
+        val currentitem = getItem(position)
+        holder.bind(currentitem) }
+
     fun setOnItemClickListener(listener:(UserProfile)->Unit){
       onItemClickListener = listener
     }
 
     fun setOnDeleteClickListener(listener:(UserProfile)->Unit){
-        onItemClickListener = listener
+        onDeleteClickListener = listener
     }
 
     fun setOnEditClickListener(listener:(UserProfile)->Unit){
-        onItemClickListener = listener
+        onEditClickListener = listener
     }
 
     inner class ProfileViewHolder(itemview: View): RecyclerView.ViewHolder(itemview){
@@ -76,17 +88,7 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
 
         }
     }
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ProfileViewHolder {
-        val itemview = LayoutInflater.from(parent.context).inflate(R.layout.profile_list_layout, parent, false)
-        return ProfileViewHolder(itemview)
-    }
 
-    override fun onBindViewHolder(holder: ProfileAdapter.ProfileViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
 
 }
 

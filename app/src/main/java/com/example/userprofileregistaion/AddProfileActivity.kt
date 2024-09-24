@@ -35,11 +35,11 @@ class    AddProfileActivity : AppCompatActivity() {
         profileViewModel  = ViewModelProvider(this).get(UserProfileViewModel::class.java)
 
 
-        nameTxt = findViewById(R.id.profileNameTxt)
-        emailTxt = findViewById(R.id.emailTxt)
-        dobTxt = findViewById(R.id.dobTxt)
-        districtTxt = findViewById(R.id.districtTxt)
-        mobileTxt = findViewById(R.id.mobileTxt)
+        nameTxt = findViewById(R.id.profileNameEt)
+        emailTxt = findViewById(R.id.EmailEt)
+        dobTxt = findViewById(R.id.dobEt)
+        districtTxt = findViewById(R.id.districtEt)
+        mobileTxt = findViewById(R.id.mobileEt)
 
         saveBtn = findViewById(R.id.addBtn)
 

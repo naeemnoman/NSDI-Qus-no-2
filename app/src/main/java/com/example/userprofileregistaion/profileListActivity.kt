@@ -26,7 +26,7 @@ class profileListActivity : AppCompatActivity() {
         profileViewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
 
         val recyclerView = findViewById<RecyclerView>(R.id.RecyclerView)
-       profileAdapter = profileAdapter
+       profileAdapter = ProfileAdapter()
 
         recyclerView.adapter = profileAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -35,6 +35,8 @@ class profileListActivity : AppCompatActivity() {
         profileViewModel.getUserProfiles().observe(this, Observer {
             profileAdapter.submitList(it)
         })
+
+
 
         profileAdapter.setOnItemClickListener {
             val intent = Intent(this, UpdateProfileActivity::class.java)
