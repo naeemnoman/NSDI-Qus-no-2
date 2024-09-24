@@ -42,8 +42,14 @@ class profileListActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        profileAdapter.setOnItemClickListener {
+        profileAdapter.setOnDeleteClickListener {
             profileViewModel.deleteUserProfile(it)
+        }
+
+        profileAdapter.setOnEditClickListener {
+            val intent = Intent(this, AddProfileActivity::class.java)
+            intent.putExtra("USER_PROFILE", it)
+            startActivity(intent)
         }
 
         findViewById<FloatingActionButton>(R.id.addProfileBtn).setOnClickListener {

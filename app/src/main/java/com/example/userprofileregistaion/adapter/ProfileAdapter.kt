@@ -29,7 +29,7 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
         onItemClickListener = listener
     }
 
-    class ProfileViewHolder(itemview: View): RecyclerView.ViewHolder(itemview){
+    inner class ProfileViewHolder(itemview: View): RecyclerView.ViewHolder(itemview){
 
         private val profileName: TextView = itemview.findViewById(R.id.userNameTxt)
         private val profileEmail: TextView = itemview.findViewById(R.id.userEmailTxt)
@@ -38,6 +38,34 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
         private val profileMobile: TextView = itemview.findViewById(R.id.userMobileTxt)
         private val updateBtn: ImageButton = itemview.findViewById(R.id.editBtn)
         private val deleteBtn: ImageButton = itemview.findViewById(R.id.deleteBtn)
+
+        init {
+            itemview.setOnClickListener{
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION){
+                    val profile = getItem(position)
+                    onItemClickListener?.invoke(profile)
+                }
+            }
+
+            deleteBtn.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION){
+                    val profile = getItem(position)
+                    onItemClickListener?.invoke(profile)
+                }
+            }
+
+            updateBtn.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION){
+                    val profile = getItem(position)
+                    onItemClickListener?.invoke(profile)
+                }
+            }
+
+        }
+
 
         fun bind(userProfile: UserProfile){
             profileName.text = userProfile.name
