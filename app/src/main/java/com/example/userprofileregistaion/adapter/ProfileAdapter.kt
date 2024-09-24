@@ -1,14 +1,15 @@
 package com.example.userprofileregistaion.adapter
-import android.R
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.userprofileregistaion.model.UserProfile
+import com.example.userprofileregistaion.R
 
 class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder>(DiffCallback()){
 
@@ -31,12 +32,12 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
     class ProfileViewHolder(itemview: View): RecyclerView.ViewHolder(itemview){
 
         private val profileName: TextView = itemview.findViewById(R.id.userNameTxt)
-       private val profileEmail: TextView = itemview.findViewById(R.id.userEmailTxt)
-      private val profileDob: TextView = itemview.findViewById(R.id.userDobTxt)
-       private val profileDistrict: TextView = itemview.findViewById(R.id.userDistrictTxt)
+        private val profileEmail: TextView = itemview.findViewById(R.id.userEmailTxt)
+        private val profileDob: TextView = itemview.findViewById(R.id.userDobTxt)
+        private val profileDistrict: TextView = itemview.findViewById(R.id.userdistrictTxt)
         private val profileMobile: TextView = itemview.findViewById(R.id.userMobileTxt)
-       private val updateBtn: TextView = itemview.findViewById(R.id.usereditBtn)
-       private val deleteBtn: TextView = itemview.findViewById(R.id.userdeleteBtn)
+        private val updateBtn: ImageButton = itemview.findViewById(R.id.editBtn)
+        private val deleteBtn: ImageButton = itemview.findViewById(R.id.deleteBtn)
 
         fun bind(userProfile: UserProfile){
             profileName.text = userProfile.name
@@ -50,9 +51,9 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ProfileAdapter.ProfileViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.profile_list_layout, parent, false)
-        return profileViewHolder(itemView)
+    ): ProfileViewHolder {
+        val itemview = LayoutInflater.from(parent.context).inflate(R.layout.profile_list_layout, parent, false)
+        return ProfileViewHolder(itemview)
     }
 
     override fun onBindViewHolder(holder: ProfileAdapter.ProfileViewHolder, position: Int) {
@@ -61,12 +62,13 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
 
 }
 
+
 class DiffCallback: DiffUtil.ItemCallback<UserProfile>(){
     override fun areItemsTheSame(oldItem: UserProfile, newItem: UserProfile): Boolean {
-        return oldItem.id = newItem.id
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: UserProfile, newItem: UserProfile): Boolean {
-        return oldItem = newItem
+        return oldItem == newItem
     }
 }

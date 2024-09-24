@@ -101,7 +101,7 @@
             app:layout_constraintStart_toStartOf="@id/mobileEt"
             app:layout_constraintTop_toBottomOf="@+id/mobileEt"
             app:strokeColor="@color/black"
-            app:strokeWidht="2dp" />
+            app:strokeWidth="2dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,5 +1,6 @@
 package com.example.userprofileregistaion
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -26,11 +27,13 @@ class    AddProfileActivity : AppCompatActivity() {
 
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_profile)
 
         profileViewModel  = ViewModelProvider(this).get(UserProfileViewModel::class.java)
+
 
         nameTxt = findViewById(R.id.profileNameTxt)
         emailTxt = findViewById(R.id.emailTxt)
@@ -45,13 +48,19 @@ class    AddProfileActivity : AppCompatActivity() {
             val email = emailTxt.toString().trim()
             val dob = dobTxt.toString().trim()
             val district = districtTxt.toString().trim()
+            val mobile = mobileTxt.toString().trim()
 
+            val UserProfile= UserProfile( name = name, email = email, dob = dob, district = district, mobile = mobile)
+
+            profileViewModel.insertUserProfile(UserProfile)
+
+            finish()
             val userProfile = UserProfile(
                 name = name,
                 email = email,
                 dob = dob,
                 district = district,
-                mobile = mobile
+                mobile = mobileTxt.toString().trim()
             )
 
             profileViewModel.insertUserProfile(userProfile)

@@ -36,6 +36,6 @@
         app:layout_constraintStart_toStartOf="@+id/welcomeTxt"
         app:layout_constraintTop_toBottomOf="@+id/welcomeTxt"
         app:strokeColor="@color/black"
-        app:strokeWidht="2dp" />
+        app:strokeWidth="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

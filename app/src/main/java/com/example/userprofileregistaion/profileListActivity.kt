@@ -26,7 +26,7 @@ class profileListActivity : AppCompatActivity() {
         profileViewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
 
         val recyclerView = findViewById<RecyclerView>(R.id.RecyclerView)
-       profileAdapter = profileAdapter()
+       profileAdapter = profileAdapter
 
         recyclerView.adapter = profileAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
