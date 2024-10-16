@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.userprofileregistaion.dao.UserProfileDao
 import com.example.userprofileregistaion.database.UserDatabase
 import com.example.userprofileregistaion.model.UserProfile
 import com.example.userprofileregistaion.repository.UserProfileRepository
@@ -25,9 +24,6 @@ class UserProfileViewModel(application: Application): AndroidViewModel(applicati
         return repository.getUserProfiles()
     }
 
-    suspend fun intsert(userProfile: UserProfile){
-        return repository.insert(userProfile)
-    }
 
    fun insertUserProfile(userProfile: UserProfile){
        viewModelScope.launch(Dispatchers.IO) {

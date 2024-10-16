@@ -19,7 +19,7 @@ class profileListActivity : AppCompatActivity() {
     private lateinit var profileViewModel: UserProfileViewModel
     private lateinit var profileAdapter: ProfileAdapter
 
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_list)
@@ -32,27 +32,28 @@ class profileListActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
 
-        profileViewModel.getUserProfiles().observe(this, Observer {
-            profileAdapter.submitList(it)
+        profileViewModel.getUserProfiles().observe(this, Observer { profiles ->
+            profileAdapter.submitList(profiles)
         })
 
 
 
-        profileAdapter.setOnItemClickListener {
+        profileAdapter.setOnItemClickListener { userProfiles ->
             val intent = Intent(this, UpdateProfileActivity::class.java)
-            intent.putExtra("USER_PROFILE", it)
+            intent.putExtra("USER_PROFILE", userProfiles)
             startActivity(intent)
         }
 
-        profileAdapter.setOnDeleteClickListener {
-            profileViewModel.deleteUserProfile(it)
-        }
-
-        profileAdapter.setOnEditClickListener {
+        profileAdapter.setOnEditClickListener { userProfiles ->
             val intent = Intent(this, AddProfileActivity::class.java)
-            intent.putExtra("USER_PROFILE", it)
+            intent.putExtra("USER_PROFILE", userProfiles)
             startActivity(intent)
         }
+
+        profileAdapter.setOnDeleteClickListener { userProfiles ->
+            profileViewModel.deleteUserProfile(userProfiles)
+        }
+
 
         findViewById<FloatingActionButton>(R.id.addProfileBtn).setOnClickListener {
             startActivity(Intent(this, AddProfileActivity::class.java))

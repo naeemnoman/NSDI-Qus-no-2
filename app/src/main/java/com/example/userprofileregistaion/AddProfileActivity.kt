@@ -45,30 +45,22 @@ class    AddProfileActivity : AppCompatActivity() {
 
         saveBtn.setOnClickListener {
             val name = nameTxt.text.toString().trim()
-            val email = emailTxt.toString().trim()
-            val dob = dobTxt.toString().trim()
-            val district = districtTxt.toString().trim()
-            val mobile = mobileTxt.toString().trim()
+            val email = emailTxt.text.toString().trim()
+            val dob = dobTxt.text.toString().trim()
+            val district = districtTxt.text.toString().trim()
+            val mobile = mobileTxt.text.toString().trim()
 
             val UserProfile= UserProfile( name = name, email = email, dob = dob, district = district, mobile = mobile)
 
             profileViewModel.insertUserProfile(UserProfile)
 
             finish()
-            val userProfile = UserProfile(
-                name = name,
-                email = email,
-                dob = dob,
-                district = district,
-                mobile = mobileTxt.toString().trim()
-            )
 
-            profileViewModel.insertUserProfile(userProfile)
-
-            finish()
         }
 
 
 
     }
+
+
 }

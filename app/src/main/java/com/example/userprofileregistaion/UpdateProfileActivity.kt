@@ -22,7 +22,7 @@ class UpdateProfileActivity : AppCompatActivity() {
     private lateinit var districtEt: EditText
     private lateinit var mobileEt: EditText
 
-    private lateinit var addBtn: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,14 +37,17 @@ class UpdateProfileActivity : AppCompatActivity() {
         dobEt = findViewById(R.id.dobEt)
         districtEt = findViewById(R.id.districtEt)
         mobileEt = findViewById(R.id.mobileEt)
-        addBtn = findViewById(R.id.addBtn)
+
 
         populatedFields()
 
-        addBtn.setOnClickListener {
+        findViewById<Button>(R.id.updateBtn).setOnClickListener {
 
+            updateUserProfile()
         }
-   fun updateUserProfile(){
+    }
+
+   private  fun updateUserProfile(){
  val name = nameEt.text.toString().trim()
     val email = emailEt.text.toString().trim()
     val dob = dobEt.text.toString().trim()
@@ -57,7 +60,7 @@ class UpdateProfileActivity : AppCompatActivity() {
        finish()
 }
 
-    }
+    
 
     private fun populatedFields() {
         nameEt.setText(userProfile.name)

@@ -2,7 +2,6 @@ package com.example.userprofileregistaion.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
@@ -17,17 +16,14 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
     private var onDeleteClickListener:((UserProfile)->Unit)?=null
     private var onEditClickListener:((UserProfile)->Unit)?=null
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ProfileViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
         val itemview = LayoutInflater.from(parent.context).inflate(R.layout.profile_list_layout, parent, false)
         return ProfileViewHolder(itemview)
     }
 
     override fun onBindViewHolder(holder: ProfileViewHolder, position: Int) {
-        val currentitem = getItem(position)
-        holder.bind(currentitem) }
+        val currentItem = getItem(position)
+        holder.bind(currentItem) }
 
     fun setOnItemClickListener(listener:(UserProfile)->Unit){
       onItemClickListener = listener
@@ -41,18 +37,18 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
         onEditClickListener = listener
     }
 
-    inner class ProfileViewHolder(itemview: View): RecyclerView.ViewHolder(itemview){
+    inner class ProfileViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
-        private val profileName: TextView = itemview.findViewById(R.id.userNameTxt)
-        private val profileEmail: TextView = itemview.findViewById(R.id.userEmailTxt)
-        private val profileDob: TextView = itemview.findViewById(R.id.userDobTxt)
-        private val profileDistrict: TextView = itemview.findViewById(R.id.userdistrictTxt)
-        private val profileMobile: TextView = itemview.findViewById(R.id.userMobileTxt)
-        private val updateBtn: ImageButton = itemview.findViewById(R.id.editBtn)
-        private val deleteBtn: ImageButton = itemview.findViewById(R.id.deleteBtn)
+        private val profileName: TextView = itemView.findViewById(R.id.userNameTxt)
+        private val profileEmail: TextView = itemView.findViewById(R.id.userEmailTxt)
+        private val profileDob: TextView = itemView.findViewById(R.id.userDobTxt)
+        private val profileDistrict: TextView = itemView.findViewById(R.id.userdistrictTxt)
+        private val profileMobile: TextView = itemView.findViewById(R.id.userMobileTxt)
+        private val updateBtn: ImageButton = itemView.findViewById(R.id.editBtn)
+        private val deleteBtn: ImageButton = itemView.findViewById(R.id.deleteBtn)
 
         init {
-            itemview.setOnClickListener{
+            itemView.setOnClickListener{
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION){
                     val profile = getItem(position)
@@ -64,7 +60,7 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION){
                     val profile = getItem(position)
-                    onItemClickListener?.invoke(profile)
+                    onDeleteClickListener?.invoke(profile)
                 }
             }
 
@@ -72,7 +68,7 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION){
                     val profile = getItem(position)
-                    onItemClickListener?.invoke(profile)
+                    onEditClickListener?.invoke(profile)
                 }
             }
 
